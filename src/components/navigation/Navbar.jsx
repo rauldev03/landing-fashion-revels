@@ -3,15 +3,15 @@ import Container from '../../ui/Container';
 import Button from '../../ui/Button';
 
 /**
- * Componente Navbar configurable y responsivo.
+ * Componente Navbar configurable y responsivo para Sora Store.
  *
  * @param {Object} props
- * @param {Object} props.brand - Información de la marca { name, href, logo }
+ * @param {Object} props.brand - Información de la marca { name, href, logoText }
  * @param {Array<{label: string, href: string}>} [props.links=[]] - Enlaces de navegación
  * @param {Object} [props.action] - Botón de acción principal { label, href, variant }
  */
 export default function Navbar({
-  brand = { name: 'NexusTech', href: '#' },
+  brand = { name: 'Sora Store', href: '#hero', logoText: 'S' },
   links = [],
   action,
 }) {
@@ -21,18 +21,28 @@ export default function Navbar({
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-lg bg-slate-950/80 border-b border-slate-800/80 transition-colors">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-slate-950/85 border-b border-slate-800/80 transition-all">
       <Container>
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo / Marca */}
           <a
-            href={brand.href || '#'}
+            href={brand.href || '#hero'}
             className="flex items-center gap-2.5 text-lg font-bold tracking-tight text-white group"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-indigo-400 flex items-center justify-center text-white font-black shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
-              {brand.logo || 'N'}
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-sky-500 to-sky-300 flex items-center justify-center text-slate-950 font-black shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform">
+              <svg
+                className="w-4 h-4 text-slate-950"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
+              </svg>
             </div>
-            <span>{brand.name}</span>
+            <div className="flex flex-col">
+              <span className="font-extrabold tracking-tight text-white group-hover:text-sky-300 transition-colors">
+                {brand.name}
+              </span>
+            </div>
           </a>
 
           {/* Navegación Desktop */}
@@ -41,7 +51,7 @@ export default function Navbar({
               <a
                 key={link.href + link.label}
                 href={link.href}
-                className="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-150"
+                className="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors duration-150 relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-sky-400 hover:after:w-full after:transition-all after:duration-200"
               >
                 {link.label}
               </a>
@@ -65,7 +75,7 @@ export default function Navbar({
           <button
             type="button"
             onClick={toggleMenu}
-            className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 cursor-pointer"
             aria-expanded={isOpen}
             aria-label="Abrir menú de navegación"
           >
@@ -96,14 +106,14 @@ export default function Navbar({
 
         {/* Menú Móvil Desplegable */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-slate-800 space-y-3 animate-fadeIn">
-            <nav className="flex flex-col space-y-2">
+          <div className="md:hidden py-4 border-t border-slate-850 space-y-3 animate-fadeIn bg-slate-950/95 rounded-b-2xl px-2">
+            <nav className="flex flex-col space-y-1">
               {links.map((link) => (
                 <a
                   key={link.href + link.label}
                   href={link.href}
                   onClick={closeMenu}
-                  className="px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors"
+                  className="px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-sky-300 hover:bg-slate-900 transition-colors"
                 >
                   {link.label}
                 </a>
@@ -127,3 +137,4 @@ export default function Navbar({
     </header>
   );
 }
+

@@ -24,7 +24,7 @@ export default function SectionTitle({
       className={`max-w-3xl ${isCenter ? 'mx-auto text-center' : 'text-left'} ${className}`.trim()}
     >
       {eyebrow && (
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 mb-4 text-xs font-semibold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 rounded-full">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 mb-4 text-xs font-semibold uppercase tracking-wider text-sky-400 bg-sky-500/10 border border-sky-500/20 rounded-full shadow-sm">
           {eyebrow}
         </span>
       )}
@@ -43,3 +43,4 @@ export default function SectionTitle({
     </div>
   );
 }
+

@@ -21,16 +21,16 @@ export default function Button({
 }) {
   // Clases base compartidas por todas las variantes
   const baseStyles =
-    'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer';
+    'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer select-none';
 
-  // Variantes de color y bordes
+  // Variantes de color y bordes adaptadas a la paleta celeste
   const variants = {
     primary:
-      'bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-600/25 active:scale-[0.98]',
+      'bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 active:scale-[0.98]',
     secondary:
-      'bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 shadow-sm active:scale-[0.98]',
+      'bg-slate-900 hover:bg-slate-800 text-slate-100 border border-slate-700/80 hover:border-slate-600 shadow-sm active:scale-[0.98]',
     outline:
-      'border border-indigo-500/40 text-indigo-400 hover:bg-indigo-950/40 hover:border-indigo-400 active:scale-[0.98]',
+      'border border-sky-500/40 text-sky-400 hover:bg-sky-950/40 hover:border-sky-400 active:scale-[0.98]',
     ghost:
       'text-slate-300 hover:text-white hover:bg-slate-800/60 active:scale-[0.98]',
   };
@@ -59,3 +59,4 @@ export default function Button({
     </button>
   );
 }
+

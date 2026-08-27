@@ -2,32 +2,43 @@ import React from 'react';
 import Container from '../../ui/Container';
 
 /**
- * Componente Footer configurable y modular.
+ * Componente Footer configurable y modular para Sora Store.
  *
  * @param {Object} props
- * @param {Object} props.brand - Datos de la marca { name, description, logo }
+ * @param {Object} props.brand - Datos de la marca { name, description, logoText }
  * @param {Array<{title: string, links: Array<{label: string, href: string}>}>} [props.columns=[]] - Columnas de enlaces
  * @param {string} [props.copyright] - Texto de derechos reservados
  * @param {Array<{name: string, href: string}>} [props.socialLinks=[]] - Enlaces a redes
  */
 export default function Footer({
-  brand = { name: 'NexusTech', description: 'Plataforma para desarrollo ágil.' },
+  brand = { name: 'Sora Store', description: 'Figuras, mangas y coleccionables para fans del anime.' },
   columns = [],
-  copyright = `© ${new Date().getFullYear()} NexusTech. Todos los derechos reservados.`,
+  copyright = `© ${new Date().getFullYear()} Sora Store. Todos los derechos reservados.`,
   socialLinks = [],
 }) {
   return (
-    <footer className="border-t border-slate-800/80 bg-slate-950/80 text-slate-400 py-14 sm:py-18">
+    <footer className="border-t border-slate-800/80 bg-slate-950 text-slate-400 py-14 sm:py-18">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-12">
           {/* Columna de Marca */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-2.5 text-lg font-bold text-white">
-              <div className="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center text-white text-xs font-black">
-                {brand.logo || 'N'}
+            <a
+              href="#hero"
+              className="flex items-center gap-2.5 text-lg font-bold text-white group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-sky-500 to-sky-300 flex items-center justify-center text-slate-950 font-black shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform">
+                <svg
+                  className="w-4 h-4 text-slate-950"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
+                </svg>
               </div>
-              <span>{brand.name}</span>
-            </div>
+              <span className="group-hover:text-sky-300 transition-colors">
+                {brand.name}
+              </span>
+            </a>
             {brand.description && (
               <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
                 {brand.description}
@@ -46,7 +57,7 @@ export default function Footer({
                   <li key={link.label + link.href}>
                     <a
                       href={link.href}
-                      className="text-sm text-slate-400 hover:text-white transition-colors duration-150"
+                      className="text-sm text-slate-400 hover:text-sky-400 transition-colors duration-150"
                     >
                       {link.label}
                     </a>
@@ -62,12 +73,14 @@ export default function Footer({
           <p>{copyright}</p>
 
           {socialLinks.length > 0 && (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-5">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
-                  className="hover:text-slate-300 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-sky-400 transition-colors"
                   aria-label={social.name}
                 >
                   {social.name}
@@ -80,3 +93,4 @@ export default function Footer({
     </footer>
   );
 }
+

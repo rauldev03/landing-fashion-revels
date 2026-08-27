@@ -3,7 +3,7 @@ import Navbar from '../components/navigation/Navbar';
 import Footer from '../components/footer/Footer';
 
 /**
- * Layout estructural para Landing Pages.
+ * Layout estructural para Landing Pages de Sora Store.
  * Envuelve el contenido en el Navbar y Footer estándar.
  *
  * @param {Object} props
@@ -13,7 +13,7 @@ import Footer from '../components/footer/Footer';
  */
 export default function LandingLayout({ children, navbar, footer }) {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 selection:bg-sky-500 selection:text-slate-950 antialiased">
       {/* Barra de navegación superior */}
       <Navbar
         brand={navbar?.brand}
@@ -34,3 +34,4 @@ export default function LandingLayout({ children, navbar, footer }) {
     </div>
   );
 }
+
