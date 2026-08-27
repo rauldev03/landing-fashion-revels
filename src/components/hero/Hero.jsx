@@ -9,7 +9,7 @@ import Button from '../../ui/Button';
  * @param {Object} props
  * @param {string} [props.eyebrow] - Etiqueta superior o novedad
  * @param {string|React.ReactNode} props.title - Título principal
- * @param {string} [props.titleHighlight] - Fragmento del título a destacar en celeste
+ * @param {string} [props.titleHighlight] - Fragmento del título a destacar
  * @param {string} props.description - Párrafo de propuesta de valor
  * @param {Object} [props.primaryAction] - Botón primario { label, href }
  * @param {Object} [props.secondaryAction] - Botón secundario { label, href }
@@ -27,10 +27,17 @@ export default function Hero({
   image,
 }) {
   return (
-    <section id="hero" className="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28">
-      {/* Resplandor decorativo celeste de fondo */}
+    <section
+      id="hero"
+      className="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 bg-gradient-to-br from-sky-50 via-white to-pink-50"
+    >
+      {/* Orbes decorativos suaves de fondo */}
       <div
-        className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-sky-500/10 blur-[130px] pointer-events-none rounded-full"
+        className="absolute top-0 right-0 w-[480px] h-[480px] bg-sky-200/40 blur-[120px] pointer-events-none rounded-full -translate-y-1/4 translate-x-1/4"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-0 left-0 w-[380px] h-[380px] bg-pink-200/35 blur-[100px] pointer-events-none rounded-full translate-y-1/4 -translate-x-1/4"
         aria-hidden="true"
       />
 
@@ -40,24 +47,24 @@ export default function Hero({
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             {/* Eyebrow / Tag */}
             {eyebrow && (
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 text-xs font-semibold text-sky-400 bg-sky-500/10 border border-sky-500/20 rounded-full shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 text-xs font-semibold text-anime-600 bg-anime-100 border border-anime-200 rounded-full shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-anime-400 animate-pulse" />
                 <span>{eyebrow}</span>
               </div>
             )}
 
-            {/* Título Principal con Resaltado Celeste */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12] mb-6">
+            {/* Título Principal con Resaltado */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12] mb-6">
               {title}{' '}
               {titleHighlight && (
-                <span className="bg-gradient-to-r from-sky-400 via-sky-300 to-cyan-300 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-sky-500 via-anime-400 to-mystic-400 bg-clip-text text-transparent">
                   {titleHighlight}
                 </span>
               )}
             </h1>
 
             {/* Descripción */}
-            <p className="text-base sm:text-lg text-slate-300 max-w-xl mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-500 max-w-xl mb-8 leading-relaxed">
               {description}
             </p>
 
@@ -83,13 +90,13 @@ export default function Hero({
 
             {/* Indicadores de Confianza */}
             {trustIndicators.length > 0 && (
-              <div className="pt-6 border-t border-slate-800/80 w-full flex flex-wrap items-center gap-y-3 gap-x-6">
+              <div className="pt-6 border-t border-slate-200 w-full flex flex-wrap items-center gap-y-3 gap-x-6">
                 {trustIndicators.map((indicator, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-2 text-xs sm:text-sm text-slate-300"
+                    className="flex items-center gap-2 text-xs sm:text-sm text-slate-600"
                   >
-                    <div className="w-4 h-4 rounded-full bg-sky-500/20 flex items-center justify-center text-sky-400 shrink-0">
+                    <div className="w-4 h-4 rounded-full bg-sky-100 flex items-center justify-center text-sky-600 shrink-0">
                       <svg
                         className="w-2.5 h-2.5"
                         fill="currentColor"
@@ -114,11 +121,11 @@ export default function Hero({
             {image && (
               <div className="w-full">
                 {typeof image === 'string' || (image.src && !React.isValidElement(image)) ? (
-                  <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-2 sm:p-3 shadow-2xl backdrop-blur-sm">
+                  <div className="rounded-2xl border border-slate-200 bg-white p-2 sm:p-3 shadow-xl">
                     <img
                       src={image.src || image}
                       alt={image.alt || 'Colección de anime'}
-                      className="rounded-xl w-full object-cover border border-slate-850"
+                      className="rounded-xl w-full object-cover"
                       loading="lazy"
                     />
                   </div>

@@ -32,7 +32,7 @@ export default function ProductCard({
     <Card className="flex flex-col justify-between p-5 sm:p-6 group relative overflow-hidden h-full">
       {/* Contenedor Superior: Imagen / Preview Visual + Badges */}
       <div>
-        <div className="relative mb-5 rounded-xl bg-slate-950/80 border border-slate-800/90 aspect-[4/3] flex items-center justify-center overflow-hidden group-hover:border-sky-500/30 transition-all duration-300">
+        <div className="relative mb-5 rounded-xl bg-slate-100 border border-slate-200 aspect-[4/3] flex items-center justify-center overflow-hidden group-hover:border-sky-300 transition-all duration-300">
           {/* Badge superior si existe */}
           {badge && (
             <div className="absolute top-3 left-3 z-10">
@@ -44,7 +44,7 @@ export default function ProductCard({
 
           {/* Categoría superior derecha */}
           <div className="absolute top-3 right-3 z-10">
-            <span className="text-[11px] font-mono font-medium text-slate-400 bg-slate-900/90 px-2 py-0.5 rounded-md border border-slate-800 backdrop-blur-sm">
+            <span className="text-[11px] font-mono font-medium text-slate-500 bg-white/90 px-2 py-0.5 rounded-md border border-slate-200">
               {category}
             </span>
           </div>
@@ -59,9 +59,9 @@ export default function ProductCard({
             />
           ) : (
             <div className="flex flex-col items-center justify-center p-4 text-center">
-              <div className="w-14 h-14 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 mb-2 shadow-inner group-hover:scale-110 transition-transform duration-300">
+              <div className="w-14 h-14 rounded-2xl bg-sky-100 border border-sky-200 flex items-center justify-center text-sky-500 mb-2 group-hover:scale-110 transition-transform duration-300">
                 <svg
-                  className="w-7 h-7 text-sky-400"
+                  className="w-7 h-7 text-sky-500"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -74,7 +74,7 @@ export default function ProductCard({
                   <line x1="12" y1="22.08" x2="12" y2="12" />
                 </svg>
               </div>
-              <span className="text-[11px] font-mono text-slate-500">
+              <span className="text-[11px] font-mono text-slate-400">
                 Item Coleccionable
               </span>
             </div>
@@ -82,18 +82,18 @@ export default function ProductCard({
 
           {/* Resplandor sutil de fondo en hover */}
           <div
-            className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 pointer-events-none"
+            className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"
             aria-hidden="true"
           />
         </div>
 
         {/* Información del Producto */}
         <div className="space-y-2 mb-4">
-          <h3 className="text-lg font-bold text-white group-hover:text-sky-300 transition-colors leading-snug">
+          <h3 className="text-lg font-bold text-slate-900 group-hover:text-sky-600 transition-colors leading-snug">
             {name}
           </h3>
           {description && (
-            <p className="text-xs sm:text-sm text-slate-400 line-clamp-2 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-500 line-clamp-2 leading-relaxed">
               {description}
             </p>
           )}
@@ -101,12 +101,12 @@ export default function ProductCard({
       </div>
 
       {/* Contenedor Inferior: Precio + Botón de Consulta a WhatsApp */}
-      <div className="pt-4 mt-2 border-t border-slate-800/80 flex items-center justify-between gap-3">
+      <div className="pt-4 mt-2 border-t border-slate-200 flex items-center justify-between gap-3">
         <div className="flex flex-col">
-          <span className="text-[10px] uppercase font-mono tracking-wider text-slate-500">
+          <span className="text-[10px] uppercase font-mono tracking-wider text-slate-400">
             Precio
           </span>
-          <span className="text-xl font-bold text-sky-400 font-mono">
+          <span className="text-xl font-bold text-sky-600 font-mono">
             {price}
           </span>
         </div>

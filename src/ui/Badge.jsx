@@ -20,10 +20,11 @@ export default function Badge({
     'inline-flex items-center gap-1.5 font-medium rounded-full tracking-wide transition-colors';
 
   const variants = {
-    sky: 'bg-sky-500/10 text-sky-400 border border-sky-500/20',
-    slate: 'bg-slate-800 text-slate-300 border border-slate-700',
-    outline: 'border border-sky-500/40 text-sky-300',
-    success: 'bg-sky-500/20 text-sky-300 border border-sky-400/30',
+    sky: 'bg-sky-100 text-sky-600 border border-sky-200',
+    slate: 'bg-slate-100 text-slate-600 border border-slate-200',
+    outline: 'border border-sky-400 text-sky-600',
+    success: 'bg-green-100 text-green-700 border border-green-200',
+    pink: 'bg-anime-100 text-anime-600 border border-anime-200',
   };
 
   const sizes = {

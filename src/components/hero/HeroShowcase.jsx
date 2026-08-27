@@ -26,39 +26,43 @@ export default function HeroShowcase({ showcaseData }) {
 
   return (
     <div className="relative w-full max-w-lg mx-auto lg:max-w-none">
-      {/* Resplandor celeste exterior */}
+      {/* Resplandor exterior suave */}
       <div
-        className="absolute -inset-1 bg-gradient-to-r from-sky-500/20 via-sky-400/10 to-sky-600/20 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition-opacity"
+        className="absolute -inset-2 bg-gradient-to-br from-sky-200/40 via-pink-200/20 to-mystic-200/30 rounded-3xl blur-2xl opacity-80"
         aria-hidden="true"
       />
 
-      <div className="relative rounded-3xl bg-slate-900/90 border border-slate-800 p-5 sm:p-7 shadow-2xl backdrop-blur-md">
+      <div className="relative rounded-3xl bg-white border border-slate-200 p-5 sm:p-7 shadow-xl">
         {/* Barra superior de la tarjeta */}
-        <div className="flex items-center justify-between pb-4 mb-5 border-b border-slate-800/80">
+        <div className="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-sky-400 animate-pulse" />
-            <span className="text-xs font-mono text-sky-400 font-semibold tracking-wider uppercase">
+            <span className="w-2.5 h-2.5 rounded-full bg-anime-400 animate-pulse" />
+            <span className="text-xs font-mono text-anime-600 font-semibold tracking-wider uppercase">
               {data.tag}
             </span>
           </div>
-          <span className="text-xs font-mono text-slate-500 tracking-widest">
+          <span className="text-xs font-mono text-slate-400 tracking-widest">
             {data.japaneseKicker}
           </span>
         </div>
 
         {/* Visual de Producto Principal / Mockup Ilustrado */}
-        <div className="relative mb-6 rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 border border-slate-800 p-6 overflow-hidden text-center group">
-          {/* Luz ambiental celeste detrás de la figura */}
+        <div className="relative mb-6 rounded-2xl bg-gradient-to-b from-sky-50 to-anime-50 border border-slate-200 p-6 overflow-hidden text-center group">
+          {/* Luz ambiental celeste/rosa detrás de la figura */}
           <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-44 h-44 bg-sky-500/15 rounded-full blur-2xl pointer-events-none"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-44 h-44 bg-sky-300/20 rounded-full blur-2xl pointer-events-none"
+            aria-hidden="true"
+          />
+          <div
+            className="absolute top-1/4 right-1/4 w-28 h-28 bg-anime-200/30 rounded-full blur-xl pointer-events-none"
             aria-hidden="true"
           />
 
           {/* Iconografía / Ilustración vectorial de la figura */}
           <div className="relative z-10 py-6 flex flex-col items-center justify-center">
-            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-slate-900/80 border border-sky-500/30 flex items-center justify-center text-sky-400 mb-4 shadow-lg shadow-sky-500/10 group-hover:scale-105 transition-transform duration-300">
+            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white border border-sky-200 flex items-center justify-center text-sky-500 mb-4 shadow-md shadow-sky-200/50 group-hover:scale-105 transition-transform duration-300">
               <svg
-                className="w-14 h-14 text-sky-400"
+                className="w-14 h-14 text-sky-500"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -74,20 +78,20 @@ export default function HeroShowcase({ showcaseData }) {
               </svg>
             </div>
 
-            <Badge variant="sky" size="sm" className="mb-2">
+            <Badge variant="pink" size="sm" className="mb-2">
               {data.badge}
             </Badge>
 
-            <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
               {data.title}
             </h3>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-xs text-slate-500 mt-1">
               {data.series}
             </p>
 
             <div className="mt-3 inline-flex items-baseline gap-1">
               <span className="text-xs text-slate-400">Precio especial:</span>
-              <span className="text-xl font-extrabold text-sky-400 font-mono">
+              <span className="text-xl font-extrabold text-sky-600 font-mono">
                 {data.price}
               </span>
             </div>
@@ -99,12 +103,12 @@ export default function HeroShowcase({ showcaseData }) {
           {data.stats.map((stat, idx) => (
             <div
               key={idx}
-              className="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-sky-500/20 transition-colors"
+              className="p-3 rounded-xl bg-slate-50 border border-slate-200 hover:border-sky-300 transition-colors"
             >
-              <p className="text-lg sm:text-xl font-bold text-white font-mono">
+              <p className="text-lg sm:text-xl font-bold text-slate-900 font-mono">
                 {stat.value}
               </p>
-              <p className="text-[11px] text-slate-400 mt-0.5 font-medium">
+              <p className="text-[11px] text-slate-500 mt-0.5 font-medium">
                 {stat.label}
               </p>
             </div>

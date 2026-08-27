@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * Componente Card atómico reutilizable.
- * Proporciona un contenedor con fondo oscuro, borde sutil y estados hover suaves.
+ * Proporciona un contenedor blanco con borde sutil y sombra suave.
  *
  * @param {Object} props
  * @param {React.ReactNode} props.children - Contenido de la tarjeta
@@ -18,10 +18,10 @@ export default function Card({
   ...props
 }) {
   const baseStyles =
-    'rounded-2xl bg-slate-900/60 border border-slate-800/80 p-6 backdrop-blur-sm transition-all duration-300';
+    'rounded-2xl bg-white border border-slate-200 p-6 shadow-card transition-all duration-300';
 
   const hoverStyles = hoverEffect
-    ? 'hover:border-sky-500/30 hover:bg-slate-900/80 hover:shadow-lg hover:shadow-sky-500/5'
+    ? 'hover:border-sky-300 hover:shadow-card-hover'
     : '';
 
   return (

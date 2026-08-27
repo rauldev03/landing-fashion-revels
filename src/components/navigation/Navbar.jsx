@@ -21,17 +21,17 @@ export default function Navbar({
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-slate-950/85 border-b border-slate-800/80 transition-all">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/90 border-b border-slate-200 shadow-sm transition-all">
       <Container>
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo / Marca */}
           <a
             href={brand.href || '#hero'}
-            className="flex items-center gap-2.5 text-lg font-bold tracking-tight text-white group"
+            className="flex items-center gap-2.5 text-lg font-bold tracking-tight text-slate-900 group"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-sky-500 to-sky-300 flex items-center justify-center text-slate-950 font-black shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 to-anime-400 flex items-center justify-center text-white font-black shadow-md shadow-sky-400/25 group-hover:scale-105 transition-transform">
               <svg
-                className="w-4 h-4 text-slate-950"
+                className="w-4 h-4 text-white"
                 viewBox="0 0 24 24"
                 fill="currentColor"
               >
@@ -39,7 +39,7 @@ export default function Navbar({
               </svg>
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold tracking-tight text-white group-hover:text-sky-300 transition-colors">
+              <span className="font-extrabold tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">
                 {brand.name}
               </span>
             </div>
@@ -51,7 +51,7 @@ export default function Navbar({
               <a
                 key={link.href + link.label}
                 href={link.href}
-                className="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors duration-150 relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-sky-400 hover:after:w-full after:transition-all after:duration-200"
+                className="text-sm font-medium text-slate-600 hover:text-sky-500 transition-colors duration-150 relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-sky-400 hover:after:w-full after:transition-all after:duration-200"
               >
                 {link.label}
               </a>
@@ -75,7 +75,7 @@ export default function Navbar({
           <button
             type="button"
             onClick={toggleMenu}
-            className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 cursor-pointer"
+            className="md:hidden p-2 rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-400 cursor-pointer"
             aria-expanded={isOpen}
             aria-label="Abrir menú de navegación"
           >
@@ -106,14 +106,14 @@ export default function Navbar({
 
         {/* Menú Móvil Desplegable */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-slate-850 space-y-3 animate-fadeIn bg-slate-950/95 rounded-b-2xl px-2">
+          <div className="md:hidden py-4 border-t border-slate-100 space-y-3 bg-white/95 rounded-b-2xl px-2">
             <nav className="flex flex-col space-y-1">
               {links.map((link) => (
                 <a
                   key={link.href + link.label}
                   href={link.href}
                   onClick={closeMenu}
-                  className="px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-sky-300 hover:bg-slate-900 transition-colors"
+                  className="px-3 py-2 rounded-lg text-base font-medium text-slate-600 hover:text-sky-600 hover:bg-sky-50 transition-colors"
                 >
                   {link.label}
                 </a>

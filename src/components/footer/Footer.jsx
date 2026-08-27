@@ -17,30 +17,30 @@ export default function Footer({
   socialLinks = [],
 }) {
   return (
-    <footer className="border-t border-slate-800/80 bg-slate-950 text-slate-400 py-14 sm:py-18">
+    <footer className="border-t border-slate-200 bg-slate-50 text-slate-500 py-14 sm:py-18">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-12">
           {/* Columna de Marca */}
           <div className="lg:col-span-2 space-y-4">
             <a
               href="#hero"
-              className="flex items-center gap-2.5 text-lg font-bold text-white group"
+              className="flex items-center gap-2.5 text-lg font-bold text-slate-900 group"
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-sky-500 to-sky-300 flex items-center justify-center text-slate-950 font-black shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 to-anime-400 flex items-center justify-center text-white font-black shadow-md shadow-sky-400/25 group-hover:scale-105 transition-transform">
                 <svg
-                  className="w-4 h-4 text-slate-950"
+                  className="w-4 h-4 text-white"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                 >
                   <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
                 </svg>
               </div>
-              <span className="group-hover:text-sky-300 transition-colors">
+              <span className="group-hover:text-sky-600 transition-colors">
                 {brand.name}
               </span>
             </a>
             {brand.description && (
-              <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
+              <p className="text-sm text-slate-500 max-w-sm leading-relaxed">
                 {brand.description}
               </p>
             )}
@@ -49,7 +49,7 @@ export default function Footer({
           {/* Columnas de Enlaces de Navegación */}
           {columns.map((column) => (
             <div key={column.title} className="space-y-3">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-200">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-700">
                 {column.title}
               </h3>
               <ul className="space-y-2">
@@ -57,7 +57,7 @@ export default function Footer({
                   <li key={link.label + link.href}>
                     <a
                       href={link.href}
-                      className="text-sm text-slate-400 hover:text-sky-400 transition-colors duration-150"
+                      className="text-sm text-slate-500 hover:text-sky-500 transition-colors duration-150"
                     >
                       {link.label}
                     </a>
@@ -69,7 +69,7 @@ export default function Footer({
         </div>
 
         {/* Línea divisoria y Copyright */}
-        <div className="pt-8 border-t border-slate-850 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>{copyright}</p>
 
           {socialLinks.length > 0 && (
@@ -80,7 +80,7 @@ export default function Footer({
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-sky-400 transition-colors"
+                  className="hover:text-sky-500 transition-colors"
                   aria-label={social.name}
                 >
                   {social.name}

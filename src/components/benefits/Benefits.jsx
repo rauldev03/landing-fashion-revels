@@ -8,7 +8,7 @@ import Card from '../../ui/Card';
  */
 function BenefitIcon({ type }) {
   const iconProps = {
-    className: 'w-6 h-6 text-sky-400',
+    className: 'w-6 h-6 text-sky-500',
     fill: 'none',
     stroke: 'currentColor',
     viewBox: '0 0 24 24',
@@ -71,7 +71,7 @@ export default function Benefits({
   items = [],
 }) {
   return (
-    <section id="benefits" className="py-20 sm:py-28 bg-slate-900/40 relative">
+    <section id="benefits" className="py-20 sm:py-28 bg-white relative">
       <Container>
         {/* Encabezado de la Sección */}
         <SectionTitle
@@ -90,17 +90,17 @@ export default function Benefits({
               className="group p-6 sm:p-7 flex flex-col justify-start relative overflow-hidden"
             >
               {/* Icono en contenedor celeste */}
-              <div className="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-sky-500/20 transition-all duration-300 shadow-sm shadow-sky-500/10">
+              <div className="w-12 h-12 rounded-xl bg-sky-100 border border-sky-200 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-sky-200 transition-all duration-300 shadow-sm">
                 <BenefitIcon type={benefit.icon} />
               </div>
 
               {/* Título del beneficio */}
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-sky-300 transition-colors">
+              <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-sky-600 transition-colors">
                 {benefit.title}
               </h3>
 
               {/* Descripción */}
-              <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+              <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
                 {benefit.description}
               </p>
             </Card>
