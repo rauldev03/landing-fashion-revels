@@ -17,25 +17,25 @@ export default function Footer({
   socialLinks = [],
 }) {
   return (
-    <footer className="border-t border-slate-200 bg-slate-50 text-slate-500 py-14 sm:py-18">
+    <footer className="border-t border-white/10 bg-[#020617] text-slate-400 py-14 sm:py-18">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-12">
           {/* Columna de Marca */}
           <div className="lg:col-span-2 space-y-4">
             <a
               href="#hero"
-              className="flex items-center gap-3 text-lg font-bold text-slate-900 group"
+              className="flex items-center gap-3 text-lg font-bold text-white group"
             >
               {brand.logo ? (
                 <img
                   src={brand.logo}
                   alt={brand.name}
-                  className="w-10 h-10 rounded-xl object-cover border border-sky-200/80 shadow-md shadow-sky-400/20 group-hover:scale-105 transition-transform"
+                  className="w-10 h-10 rounded-xl object-cover border border-sky-400/40 shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform bg-slate-900"
                 />
               ) : (
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-400 to-sky-600 flex items-center justify-center text-white font-black shadow-md shadow-sky-400/25 group-hover:scale-105 transition-transform">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-400 via-pink-400 to-amber-300 flex items-center justify-center text-slate-950 font-black shadow-md shadow-sky-400/25 group-hover:scale-105 transition-transform">
                   <svg
-                    className="w-4 h-4 text-white"
+                    className="w-4 h-4 text-slate-950"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -43,12 +43,12 @@ export default function Footer({
                   </svg>
                 </div>
               )}
-              <span className="font-extrabold group-hover:text-sky-500 transition-colors">
+              <span className="font-extrabold text-white group-hover:text-sky-400 transition-colors">
                 {brand.name}
               </span>
             </a>
             {brand.description && (
-              <p className="text-sm text-slate-500 max-w-sm leading-relaxed">
+              <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
                 {brand.description}
               </p>
             )}
@@ -57,7 +57,7 @@ export default function Footer({
           {/* Columnas de Enlaces de Navegación */}
           {columns.map((column) => (
             <div key={column.title} className="space-y-3">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-700">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-200">
                 {column.title}
               </h3>
               <ul className="space-y-2">
@@ -65,7 +65,7 @@ export default function Footer({
                   <li key={link.label + link.href}>
                     <a
                       href={link.href}
-                      className="text-sm text-slate-500 hover:text-sky-500 transition-colors duration-150"
+                      className="text-sm text-slate-400 hover:text-sky-400 transition-colors duration-150"
                     >
                       {link.label}
                     </a>
@@ -77,7 +77,7 @@ export default function Footer({
         </div>
 
         {/* Línea divisoria y Copyright */}
-        <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>{copyright}</p>
 
           {socialLinks.length > 0 && (
@@ -88,7 +88,7 @@ export default function Footer({
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-sky-500 transition-colors"
+                  className="hover:text-sky-400 transition-colors"
                   aria-label={social.name}
                 >
                   {social.name}

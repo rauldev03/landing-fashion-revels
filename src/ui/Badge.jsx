@@ -1,11 +1,11 @@
 import React from 'react';
 
 /**
- * Componente Badge atómico para etiquetas, estados y categorías.
+ * Componente Badge atómico para etiquetas, estados y categorías en tema oscuro.
  *
  * @param {Object} props
  * @param {React.ReactNode} props.children - Texto o contenido del badge
- * @param {'sky'|'slate'|'outline'|'success'} [props.variant='sky'] - Variante de color
+ * @param {'sky'|'slate'|'outline'|'success'|'pink'|'amber'} [props.variant='sky'] - Variante de color
  * @param {'sm'|'md'} [props.size='sm'] - Tamaño del badge
  * @param {string} [props.className] - Clases Tailwind adicionales
  */
@@ -17,14 +17,15 @@ export default function Badge({
   ...props
 }) {
   const baseStyles =
-    'inline-flex items-center gap-1.5 font-medium rounded-full tracking-wide transition-colors';
+    'inline-flex items-center gap-1.5 font-medium rounded-full tracking-wide transition-colors backdrop-blur-md';
 
   const variants = {
-    sky: 'bg-sky-100 text-sky-600 border border-sky-200',
-    slate: 'bg-slate-100 text-slate-600 border border-slate-200',
-    outline: 'border border-sky-400 text-sky-600',
-    success: 'bg-green-100 text-green-700 border border-green-200',
-    pink: 'bg-anime-100 text-anime-600 border border-anime-200',
+    sky: 'bg-sky-950/80 text-sky-300 border border-sky-500/30',
+    pink: 'bg-pink-950/80 text-pink-300 border border-pink-500/30',
+    amber: 'bg-amber-950/80 text-amber-300 border border-amber-500/30',
+    slate: 'bg-slate-800 text-slate-300 border border-slate-700',
+    outline: 'border border-sky-400/50 text-sky-400 bg-transparent',
+    success: 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/30',
   };
 
   const sizes = {
@@ -41,3 +42,4 @@ export default function Badge({
     </span>
   );
 }
+

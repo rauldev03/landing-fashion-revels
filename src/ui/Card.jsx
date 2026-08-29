@@ -1,8 +1,8 @@
 import React from 'react';
 
 /**
- * Componente Card atómico reutilizable.
- * Proporciona un contenedor blanco con borde sutil y sombra suave.
+ * Componente Card atómico reutilizable para tema oscuro.
+ * Contenedor oscuro translúcido con borde sutil, efecto glassmorphism y sombra suave.
  *
  * @param {Object} props
  * @param {React.ReactNode} props.children - Contenido de la tarjeta
@@ -18,10 +18,10 @@ export default function Card({
   ...props
 }) {
   const baseStyles =
-    'rounded-2xl bg-white border border-slate-200 p-6 shadow-card transition-all duration-300';
+    'rounded-3xl bg-slate-900/80 border border-slate-800/90 backdrop-blur-md p-6 shadow-xl transition-all duration-300 text-slate-100';
 
   const hoverStyles = hoverEffect
-    ? 'hover:border-sky-300 hover:shadow-card-hover'
+    ? 'hover:border-sky-400/50 hover:bg-slate-800/80 hover:shadow-sky-500/10'
     : '';
 
   return (
@@ -33,3 +33,4 @@ export default function Card({
     </Component>
   );
 }
+

@@ -70,17 +70,25 @@ function CategoryIcon({ type }) {
 export default function Categories({
   eyebrow,
   title,
+  titleHighlight,
   description,
   categories = [],
   onSelectCategory,
 }) {
   return (
-    <section id="categories" className="py-20 sm:py-28 bg-slate-50 relative">
-      <Container>
+    <section id="categories" className="py-20 sm:py-28 bg-[#070d18] text-white relative border-t border-white/5">
+      {/* Resplandor ambiental */}
+      <div
+        className="absolute top-0 right-1/3 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"
+        aria-hidden="true"
+      />
+
+      <Container className="relative z-10">
         {/* Encabezado de la Sección */}
         <SectionTitle
           eyebrow={eyebrow}
           title={title}
+          titleHighlight={titleHighlight}
           description={description}
           alignment="center"
           className="mb-14 sm:mb-18"
@@ -92,47 +100,47 @@ export default function Categories({
             <Card
               key={cat.id || index}
               as="a"
-              href="#products"
+              href="#cta"
               onClick={() => onSelectCategory && onSelectCategory(cat.title)}
-              className="group flex flex-col justify-between p-6 sm:p-7 relative overflow-hidden cursor-pointer hover:border-sky-400 hover:-translate-y-1 transition-all duration-300"
+              className="group flex flex-col justify-between p-6 sm:p-7 relative overflow-hidden cursor-pointer bg-slate-900/80 border-slate-800/90 hover:border-sky-400/50 hover:bg-slate-800/70 transition-all duration-300 backdrop-blur-sm"
             >
               {/* Resplandor celeste sutil en hover */}
               <div
-                className="absolute -top-12 -right-12 w-28 h-28 bg-sky-200/50 rounded-full blur-xl group-hover:bg-anime-200/50 transition-all pointer-events-none"
+                className="absolute -top-12 -right-12 w-28 h-28 bg-sky-500/20 rounded-full blur-xl group-hover:bg-pink-500/25 transition-all pointer-events-none"
                 aria-hidden="true"
               />
 
               <div>
                 {/* Cabecera de la Card: Icono + Kicker */}
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-sky-100 border border-sky-200 flex items-center justify-center group-hover:bg-sky-200 group-hover:scale-110 transition-all duration-300 shadow-sm">
+                  <div className="w-12 h-12 rounded-xl bg-sky-950/80 border border-sky-500/30 text-sky-400 flex items-center justify-center group-hover:bg-sky-900/80 group-hover:scale-110 transition-all duration-300 shadow-sm">
                     <CategoryIcon type={cat.icon} />
                   </div>
                   {cat.kicker && (
-                    <span className="text-[11px] font-mono font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200">
+                    <span className="text-[11px] font-mono font-medium text-slate-300 bg-slate-800/80 px-2.5 py-1 rounded-full border border-slate-700">
                       {cat.kicker}
                     </span>
                   )}
                 </div>
 
                 {/* Título */}
-                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-sky-600 transition-colors flex items-center gap-1.5">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors flex items-center gap-1.5">
                   {cat.title}
-                  <span className="text-sky-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-sm">
+                  <span className="text-sky-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-sm">
                     →
                   </span>
                 </h3>
 
                 {/* Descripción */}
-                <p className="text-slate-500 text-sm leading-relaxed">
+                <p className="text-slate-400 text-sm leading-relaxed">
                   {cat.description}
                 </p>
               </div>
 
               {/* Pie de la card con llamada visual sutil */}
-              <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-xs font-medium text-slate-500 group-hover:text-sky-600 transition-colors">
-                <span>Explorar artículos</span>
-                <span className="text-sky-500 font-bold">Ver catálogo</span>
+              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-medium text-slate-400 group-hover:text-sky-400 transition-colors">
+                <span>Disponibilidad inmediata</span>
+                <span className="text-sky-400 font-bold">Consultar</span>
               </div>
             </Card>
           ))}

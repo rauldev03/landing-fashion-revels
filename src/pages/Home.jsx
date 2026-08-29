@@ -2,14 +2,14 @@ import React from 'react';
 import LandingLayout from '../layouts/LandingLayout';
 import Hero from '../components/hero/Hero';
 import HeroShowcase from '../components/hero/HeroShowcase';
+import About from '../components/about/About';
 import Categories from '../components/categories/Categories';
-import Products from '../components/products/Products';
 import Benefits from '../components/benefits/Benefits';
 import CTA from '../components/cta/CTA';
 import { landingData } from '../data/landingData';
 
 /**
- * Página principal (Home) para Sora Store.
+ * Página principal (Home) para Fashion Revels.
  * Conecta los datos de `landingData.js` con las secciones mediante composición de componentes.
  * Mantiene la separación de datos y presentación (Single Source of Truth).
  */
@@ -18,8 +18,8 @@ export default function Home() {
     navigation,
     brand,
     hero,
+    about,
     categories,
-    products,
     benefits,
     contact,
     cta,
@@ -47,28 +47,34 @@ export default function Home() {
         image={<HeroShowcase showcaseData={hero.showcase} />}
       />
 
-      {/* 2. Sección Categorías (Figuras, Mangas, Merch, Coleccionables) */}
+      {/* 2. Sección Sobre Nosotros (Historia, autenticidad y pilares) */}
+      {about && (
+        <About
+          eyebrow={about.eyebrow}
+          title={about.title}
+          titleHighlight={about.titleHighlight}
+          description={about.description}
+          story={about.story}
+          features={about.features}
+          image={about.image}
+          action={about.action}
+        />
+      )}
+
+      {/* 3. Sección Categorías: Encuentra lo que buscas (Figuras, Mangas, Merch, Coleccionables) */}
       <Categories
         eyebrow={categories.eyebrow}
         title={categories.title}
+        titleHighlight={categories.titleHighlight}
         description={categories.description}
         categories={categories.items}
       />
 
-      {/* 3. Sección Productos Destacados (Catálogo con WhatsApp) */}
-      <Products
-        eyebrow={products.eyebrow}
-        title={products.title}
-        description={products.description}
-        items={products.items}
-        filterCategories={products.filterCategories}
-        whatsappPhone={contact.phone}
-      />
-
-      {/* 4. Sección Beneficios (Por qué comprar en Sora Store) */}
+      {/* 4. Sección Beneficios (Por qué comprar en Fashion Revels) */}
       <Benefits
         eyebrow={benefits.eyebrow}
         title={benefits.title}
+        titleHighlight={benefits.titleHighlight}
         description={benefits.description}
         items={benefits.items}
       />
@@ -76,6 +82,7 @@ export default function Home() {
       {/* 5. Sección Call to Action Final (Contacto directo por WhatsApp) */}
       <CTA
         title={cta.title}
+        titleHighlight={cta.titleHighlight}
         description={cta.description}
         action={{
           label: cta.actionLabel,

@@ -95,11 +95,11 @@ export default function HeroShowcase({ showcaseData }) {
     >
       {/* Resplandor exterior suave de fondo */}
       <div
-        className="absolute -inset-2 bg-gradient-to-br from-sky-200/40 via-pink-200/20 to-mystic-200/30 rounded-3xl blur-2xl opacity-80"
+        className="absolute -inset-2 bg-gradient-to-br from-sky-500/25 via-pink-500/20 to-amber-400/20 rounded-3xl blur-2xl opacity-75"
         aria-hidden="true"
       />
 
-      <div className="relative rounded-3xl bg-white border border-slate-200 p-3 sm:p-4 shadow-xl">
+      <div className="relative rounded-3xl bg-slate-900/85 border border-slate-800/90 backdrop-blur-xl p-3 sm:p-4 shadow-2xl">
         {/* Contenedor del Carrusel de Imágenes */}
         <div
           className="relative rounded-2xl overflow-hidden bg-slate-900 shadow-inner group aspect-[4/3] sm:aspect-[4/3.2]"

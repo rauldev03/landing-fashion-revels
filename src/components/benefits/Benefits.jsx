@@ -67,16 +67,24 @@ function BenefitIcon({ type }) {
 export default function Benefits({
   eyebrow,
   title,
+  titleHighlight,
   description,
   items = [],
 }) {
   return (
-    <section id="benefits" className="py-20 sm:py-28 bg-white relative">
-      <Container>
+    <section id="benefits" className="py-20 sm:py-28 bg-[#030712] text-white relative border-t border-white/5">
+      {/* Resplandor ambiental */}
+      <div
+        className="absolute top-1/2 left-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl pointer-events-none"
+        aria-hidden="true"
+      />
+
+      <Container className="relative z-10">
         {/* Encabezado de la Sección */}
         <SectionTitle
           eyebrow={eyebrow}
           title={title}
+          titleHighlight={titleHighlight}
           description={description}
           alignment="center"
           className="mb-14 sm:mb-20"
@@ -87,20 +95,20 @@ export default function Benefits({
           {items.map((benefit, index) => (
             <Card
               key={benefit.id || benefit.title || index}
-              className="group p-6 sm:p-7 flex flex-col justify-start relative overflow-hidden"
+              className="group p-6 sm:p-7 flex flex-col justify-start relative overflow-hidden bg-slate-900/80 border-slate-800/90 hover:border-sky-400/50 hover:bg-slate-800/70 transition-all duration-300 backdrop-blur-sm"
             >
               {/* Icono en contenedor celeste */}
-              <div className="w-12 h-12 rounded-xl bg-sky-100 border border-sky-200 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-sky-200 transition-all duration-300 shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-sky-950/80 border border-sky-500/30 text-sky-400 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-sky-900/80 transition-all duration-300 shadow-sm">
                 <BenefitIcon type={benefit.icon} />
               </div>
 
               {/* Título del beneficio */}
-              <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-sky-600 transition-colors">
+              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">
                 {benefit.title}
               </h3>
 
               {/* Descripción */}
-              <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
+              <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
                 {benefit.description}
               </p>
             </Card>

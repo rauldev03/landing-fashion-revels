@@ -14,32 +14,38 @@ import Button from '../../ui/Button';
  */
 export default function CTA({
   title,
+  titleHighlight = 'Atención Personalizada',
   description,
   action,
   secondaryAction,
 }) {
   return (
-    <section id="cta" className="py-20 sm:py-28 relative overflow-hidden bg-slate-50">
+    <section id="cta" className="py-20 sm:py-28 relative overflow-hidden bg-[#030712] text-white border-t border-white/5">
       <Container>
-        <div className="relative rounded-3xl bg-gradient-to-br from-sky-100 via-white to-pink-100 border border-sky-200 p-8 sm:p-14 lg:p-16 text-center shadow-xl shadow-sky-100/60 overflow-hidden">
-          {/* Resplandor decorativo */}
+        <div className="relative rounded-3xl bg-gradient-to-br from-slate-900 via-[#0a192f] to-slate-900 border border-white/10 p-8 sm:p-14 lg:p-16 text-center shadow-2xl overflow-hidden backdrop-blur-xl">
+          {/* Resplandor decorativo cósmico */}
           <div
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-sky-300/25 blur-3xl rounded-full pointer-events-none"
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-sky-500/20 blur-3xl rounded-full pointer-events-none"
             aria-hidden="true"
           />
           <div
-            className="absolute bottom-0 right-1/4 w-64 h-32 bg-pink-200/30 blur-3xl rounded-full pointer-events-none"
+            className="absolute bottom-0 right-1/4 w-64 h-32 bg-pink-500/20 blur-3xl rounded-full pointer-events-none"
             aria-hidden="true"
           />
 
           <div className="relative z-10 max-w-2xl mx-auto">
-            {/* Título */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
-              {title}
+            {/* Título con resplandor */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4 drop-shadow-sm">
+              {title}{' '}
+              {titleHighlight && (
+                <span className="bg-gradient-to-r from-sky-400 via-pink-400 to-amber-300 bg-clip-text text-transparent">
+                  {titleHighlight}
+                </span>
+              )}
             </h2>
 
             {/* Descripción */}
-            <p className="text-base sm:text-lg text-slate-500 mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-300 mb-8 leading-relaxed">
               {description}
             </p>
 
@@ -63,7 +69,7 @@ export default function CTA({
               {secondaryAction && (
                 <Button
                   href={secondaryAction.href}
-                  variant="outline"
+                  variant="secondary"
                   size="lg"
                   className="w-full sm:w-auto"
                 >

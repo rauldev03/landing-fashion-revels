@@ -6,7 +6,7 @@
  * sin necesidad de alterar los componentes de la interfaz de usuario.
  */
 
-const WHATSAPP_PHONE = '5491100000000'; // Formato internacional sin '+' ni espacios (ej: 54911XXXXXXXX)
+const WHATSAPP_PHONE = '51924269617'; // Formato internacional Perú (+51)
 const DEFAULT_WHATSAPP_MSG = '¡Hola Fashion Revels! Me gustaría consultar sobre sus productos de anime y coleccionables disponibles.';
 
 export const landingData = {
@@ -22,7 +22,7 @@ export const landingData = {
   // 2. Información de Contacto y WhatsApp
   contact: {
     phone: WHATSAPP_PHONE,
-    phoneDisplay: '+54 9 11 0000-0000',
+    phoneDisplay: '+51 924 269 617',
     email: 'contacto@fashionrevels.com',
     whatsappBaseUrl: `https://wa.me/${WHATSAPP_PHONE}`,
     defaultMessage: DEFAULT_WHATSAPP_MSG,
@@ -37,14 +37,14 @@ export const landingData = {
   navigation: {
     links: [
       { label: 'Inicio', href: '#hero' },
+      { label: 'Sobre Nosotros', href: '#about' },
       { label: 'Categorías', href: '#categories' },
-      { label: 'Productos', href: '#products' },
-      { label: 'Nosotros', href: '#benefits' },
+      { label: 'Beneficios', href: '#benefits' },
       { label: 'Contacto', href: '#cta' },
     ],
     action: {
-      label: 'Ver catálogo',
-      href: '#products',
+      label: 'Ver categorías',
+      href: '#categories',
       variant: 'primary',
     },
   },
@@ -57,12 +57,12 @@ export const landingData = {
     description:
       'Figuras de acción exclusivas, mangas oficiales y merchandising para verdaderos fans del anime. Encuentra tus piezas favoritas con calidad garantizada y envíos seguros.',
     primaryAction: {
-      label: 'Explorar productos',
-      href: '#products',
+      label: 'Explorar categorías',
+      href: '#categories',
     },
     secondaryAction: {
-      label: 'Ver categorías',
-      href: '#categories',
+      label: 'Sobre nosotros',
+      href: '#about',
     },
     trustIndicators: [
       'Productos 100% Originales',
@@ -79,10 +79,50 @@ export const landingData = {
     },
   },
 
-  // 5. Categorías Principales
+  // 5. Sección Sobre Nosotros
+  about: {
+    eyebrow: 'Sobre Nosotros',
+    title: 'Pasión por el Anime,',
+    titleHighlight: 'Calidad para Coleccionistas',
+    description:
+      'En Fashion Revels nacimos de la pasión compartida por el mundo del anime y la cultura japonesa. Seleccionamos cada pieza con el máximo cuidado para que tu colección sea única.',
+    story: [
+      'Somos coleccionistas apasionados que entendemos el valor y la emoción de conseguir esa figura tan esperada o completar tu tomo favorito de manga.',
+      'Nos enfocamos en traerte artículos 100% auténticos, con embalajes reforzados de alta protección y asesoría personalizada de fan a fan a través de WhatsApp.',
+    ],
+    features: [
+      {
+        title: 'Coleccionables 100% Originales',
+        description: 'Autenticidad garantizada en cada figura y manga oficial.',
+      },
+      {
+        title: 'Atención Personalizada 1 a 1',
+        description: 'Te asesoramos directamente por WhatsApp sobre medidas y preventas.',
+      },
+      {
+        title: 'Embalaje Especial Reforzado',
+        description: 'Protección acolchada para que tus cajas y figuras lleguen impecables.',
+      },
+      {
+        title: 'Preventas y Novedades',
+        description: 'Acceso prioritario a lanzamientos y piezas exclusivas.',
+      },
+    ],
+    image: {
+      src: '/images/logo.png',
+      alt: 'Fashion Revels - Coleccionables Anime',
+    },
+    action: {
+      label: 'Consultar por WhatsApp',
+      href: `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent('¡Hola Fashion Revels! Quiero consultar sobre sus figuras y coleccionables.')}`,
+    },
+  },
+
+  // 6. Categorías Principales
   categories: {
     eyebrow: 'Categorías',
-    title: 'Encuentra lo que buscas',
+    title: 'Encuentra lo que',
+    titleHighlight: 'buscas',
     description:
       'Explora nuestras principales categorías y encuentra tu próxima pieza favorita.',
     items: [
@@ -117,83 +157,19 @@ export const landingData = {
     ],
   },
 
-  // 6. Productos Destacados (Catálogo)
-  products: {
-    eyebrow: 'Catálogo Seleccionado',
-    title: 'Productos destacados',
-    description:
-      'Descubre las piezas más buscadas de la temporada. Consulta disponibilidad inmediata y detalles de envío directamente por WhatsApp.',
-    filterCategories: ['Todos', 'Figuras', 'Mangas', 'Merchandising', 'Coleccionables'],
-    items: [
-      {
-        id: 'prod-1',
-        name: 'Figura Gojo Satoru - Hollow Purple',
-        category: 'Figuras',
-        price: '$48.00',
-        badge: 'Popular',
-        description: 'Figura de alta definición con efectos translúcidos celestes y base de impacto.',
-        image: null,
-      },
-      {
-        id: 'prod-2',
-        name: 'Manga Chainsaw Man Box Set (Vol. 1-11)',
-        category: 'Mangas',
-        price: '$85.00',
-        badge: 'Exclusivo',
-        description: 'Cofre coleccionista con los 11 tomos de la primera parte en español oficial.',
-        image: null,
-      },
-      {
-        id: 'prod-3',
-        name: 'Figura Roronoa Zoro - Wano Kuni Enma',
-        category: 'Figuras',
-        price: '$54.00',
-        badge: 'Nuevo',
-        description: 'Detalles minuciosos en espadas triples, vestimenta samurái y pose dinámica.',
-        image: null,
-      },
-      {
-        id: 'prod-4',
-        name: 'Katana Nichirin Coleccionable 1:1',
-        category: 'Coleccionables',
-        price: '$62.00',
-        badge: 'Especial',
-        description: 'Réplica de exhibición escala real con empuñadura tejida y pedestal de madera.',
-        image: null,
-      },
-      {
-        id: 'prod-5',
-        name: 'Manga Jujutsu Kaisen - Tomo 0 Especial',
-        category: 'Mangas',
-        price: '$14.50',
-        badge: 'Bestseller',
-        description: 'Volumen precuela imprescindible con sobrecubierta brillante y extras.',
-        image: null,
-      },
-      {
-        id: 'prod-6',
-        name: 'Hoodie Anime Cyber-Samurai Oversize',
-        category: 'Merchandising',
-        price: '$38.00',
-        badge: 'Trending',
-        description: 'Buzo premium 100% algodón peinado con serigrafía digital de alta duración.',
-        image: null,
-      },
-    ],
-  },
-
   // 7. Sección de Beneficios
   benefits: {
     eyebrow: '¿Por qué Fashion Revels?',
-    title: 'Diseñado para verdaderos coleccionistas',
+    title: 'Diseñado para verdaderos',
+    titleHighlight: 'coleccionistas',
     description:
       'Nos apasiona el anime tanto como a ti. Cuidamos cada detalle desde la selección de cada artículo hasta su entrega.',
     items: [
       {
         id: 'benefit-1',
-        title: 'Productos seleccionados',
+        title: 'Productos 100% Originales',
         description:
-          'Curaduría minuciosa de piezas originales y réplicas de máxima fidelidad para que tu colección resalte.',
+          'Curaduría minuciosa de piezas oficiales para que tu colección resalte con máxima autenticidad.',
         icon: 'check-badge',
       },
       {
@@ -205,14 +181,14 @@ export const landingData = {
       },
       {
         id: 'benefit-3',
-        title: 'Compra fácil',
+        title: 'Compra directa y fácil',
         description:
           'Sin registros engorrosos ni procesos complejos. Eliges lo que te gusta y coordinamos en minutos.',
         icon: 'sparkles',
       },
       {
         id: 'benefit-4',
-        title: 'Envíos disponibles',
+        title: 'Envíos acolchados y seguros',
         description:
           'Embalaje con protección acolchada especial para que tus figuras y mangas lleguen en perfecto estado.',
         icon: 'truck',
@@ -222,13 +198,14 @@ export const landingData = {
 
   // 8. Llamada a la Acción Final (CTA)
   cta: {
-    title: '¿Encontraste algo para tu colección?',
+    title: '¿Listo para llevar tu colección',
+    titleHighlight: 'al siguiente nivel?',
     description:
-      'Consulta disponibilidad, nuevos ingresos y productos directamente con nosotros por WhatsApp.',
+      'Consulta disponibilidad inmediata, preventas exclusivas y catálogo completo directamente con nosotros por WhatsApp.',
     actionLabel: 'Consultar por WhatsApp',
     secondaryAction: {
-      label: 'Ver catálogo de productos',
-      href: '#products',
+      label: 'Explorar categorías',
+      href: '#categories',
     },
   },
 
@@ -242,22 +219,22 @@ export const landingData = {
     },
     columns: [
       {
-        title: 'Tienda',
+        title: 'Navegación',
         links: [
-          { label: 'Todos los Productos', href: '#products' },
-          { label: 'Figuras Anime', href: '#categories' },
-          { label: 'Mangas Oficiales', href: '#categories' },
-          { label: 'Merchandising', href: '#categories' },
-          { label: 'Coleccionables', href: '#categories' },
+          { label: 'Inicio', href: '#hero' },
+          { label: 'Sobre Nosotros', href: '#about' },
+          { label: 'Categorías', href: '#categories' },
+          { label: 'Beneficios', href: '#benefits' },
+          { label: 'Contacto', href: '#cta' },
         ],
       },
       {
-        title: 'Información',
+        title: 'Categorías',
         links: [
-          { label: 'Sobre Nosotros', href: '#benefits' },
-          { label: 'Preguntas Frecuentes', href: '#cta' },
-          { label: 'Políticas de Envío', href: '#benefits' },
-          { label: 'Contacto Directo', href: '#cta' },
+          { label: 'Figuras Anime', href: '#categories' },
+          { label: 'Mangas Oficiales', href: '#categories' },
+          { label: 'Merchandising', href: '#categories' },
+          { label: 'Ediciones Limitadas', href: '#categories' },
         ],
       },
     ],
