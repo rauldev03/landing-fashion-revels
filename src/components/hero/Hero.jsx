@@ -25,19 +25,40 @@ export default function Hero({
   secondaryAction,
   trustIndicators = [],
   image,
+  backgroundVideo,
 }) {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 bg-gradient-to-br from-sky-50 via-white to-pink-50"
+      className="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 bg-gradient-to-br from-sky-50 via-white to-sky-50/40"
     >
-      {/* Orbes decorativos suaves de fondo */}
+      {/* Video de fondo si está presente */}
+      {backgroundVideo && (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-85"
+          aria-hidden="true"
+        >
+          <source src={backgroundVideo} type="video/mp4" />
+        </video>
+      )}
+
+      {/* Capa de contraste suave para mantener el video muy visible y el texto legible */}
       <div
-        className="absolute top-0 right-0 w-[480px] h-[480px] bg-sky-200/40 blur-[120px] pointer-events-none rounded-full -translate-y-1/4 translate-x-1/4"
+        className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-white/30 pointer-events-none"
+        aria-hidden="true"
+      />
+
+      {/* Orbes decorativos celestes suaves de fondo */}
+      <div
+        className="absolute top-0 right-0 w-[520px] h-[520px] bg-sky-200/30 blur-[130px] pointer-events-none rounded-full -translate-y-1/4 translate-x-1/4"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-0 left-0 w-[380px] h-[380px] bg-pink-200/35 blur-[100px] pointer-events-none rounded-full translate-y-1/4 -translate-x-1/4"
+        className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-sky-100/40 blur-[110px] pointer-events-none rounded-full translate-y-1/4 -translate-x-1/4"
         aria-hidden="true"
       />
 

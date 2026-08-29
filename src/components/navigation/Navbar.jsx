@@ -27,19 +27,27 @@ export default function Navbar({
           {/* Logo / Marca */}
           <a
             href={brand.href || '#hero'}
-            className="flex items-center gap-2.5 text-lg font-bold tracking-tight text-slate-900 group"
+            className="flex items-center gap-3 text-lg font-bold tracking-tight text-slate-900 group"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 to-anime-400 flex items-center justify-center text-white font-black shadow-md shadow-sky-400/25 group-hover:scale-105 transition-transform">
-              <svg
-                className="w-4 h-4 text-white"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
-              </svg>
-            </div>
+            {brand.logo ? (
+              <img
+                src={brand.logo}
+                alt={brand.name}
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl object-cover border border-sky-200/80 shadow-md shadow-sky-400/20 group-hover:scale-105 transition-transform"
+              />
+            ) : (
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-400 to-sky-600 flex items-center justify-center text-white font-black shadow-md shadow-sky-400/25 group-hover:scale-105 transition-transform">
+                <svg
+                  className="w-4 h-4 text-white"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
+                </svg>
+              </div>
+            )}
             <div className="flex flex-col">
-              <span className="font-extrabold tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">
+              <span className="font-extrabold tracking-tight text-slate-900 group-hover:text-sky-500 transition-colors">
                 {brand.name}
               </span>
             </div>

@@ -24,18 +24,26 @@ export default function Footer({
           <div className="lg:col-span-2 space-y-4">
             <a
               href="#hero"
-              className="flex items-center gap-2.5 text-lg font-bold text-slate-900 group"
+              className="flex items-center gap-3 text-lg font-bold text-slate-900 group"
             >
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 to-anime-400 flex items-center justify-center text-white font-black shadow-md shadow-sky-400/25 group-hover:scale-105 transition-transform">
-                <svg
-                  className="w-4 h-4 text-white"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
-                </svg>
-              </div>
-              <span className="group-hover:text-sky-600 transition-colors">
+              {brand.logo ? (
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="w-10 h-10 rounded-xl object-cover border border-sky-200/80 shadow-md shadow-sky-400/20 group-hover:scale-105 transition-transform"
+                />
+              ) : (
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-400 to-sky-600 flex items-center justify-center text-white font-black shadow-md shadow-sky-400/25 group-hover:scale-105 transition-transform">
+                  <svg
+                    className="w-4 h-4 text-white"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
+                  </svg>
+                </div>
+              )}
+              <span className="font-extrabold group-hover:text-sky-500 transition-colors">
                 {brand.name}
               </span>
             </a>

@@ -45,6 +45,7 @@ export default function Home() {
         secondaryAction={hero.secondaryAction}
         trustIndicators={hero.trustIndicators}
         image={<HeroShowcase showcaseData={hero.showcase} />}
+        backgroundVideo={hero.backgroundVideo}
       />
 
       {/* 2. Sección Categorías (Figuras, Mangas, Merch, Coleccionables) */}

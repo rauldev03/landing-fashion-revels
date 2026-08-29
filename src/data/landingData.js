@@ -7,14 +7,15 @@
  */
 
 const WHATSAPP_PHONE = '5491100000000'; // Formato internacional sin '+' ni espacios (ej: 54911XXXXXXXX)
-const DEFAULT_WHATSAPP_MSG = '¡Hola Sora Store! Me gustaría consultar sobre sus productos de anime y coleccionables disponibles.';
+const DEFAULT_WHATSAPP_MSG = '¡Hola Fashion Revels! Me gustaría consultar sobre sus productos de anime y coleccionables disponibles.';
 
 export const landingData = {
   // 1. Identidad de Marca
   brand: {
-    name: 'Sora Store',
+    name: 'Fashion Revels',
     tagline: 'Figuras, Mangas y Coleccionables Anime',
-    logoText: 'S',
+    logo: '/images/logo.png',
+    logoText: 'FR',
     href: '#hero',
   },
 
@@ -22,7 +23,7 @@ export const landingData = {
   contact: {
     phone: WHATSAPP_PHONE,
     phoneDisplay: '+54 9 11 0000-0000',
-    email: 'contacto@sorastore.com',
+    email: 'contacto@fashionrevels.com',
     whatsappBaseUrl: `https://wa.me/${WHATSAPP_PHONE}`,
     defaultMessage: DEFAULT_WHATSAPP_MSG,
     // Generador de enlace directo con mensaje personalizado
@@ -50,6 +51,7 @@ export const landingData = {
 
   // 4. Sección Hero (Impacto Principal)
   hero: {
+    backgroundVideo: '/video/goku_sky.mp4',
     eyebrow: 'Tu tienda para coleccionistas',
     title: 'Tu colección merece',
     titleHighlight: 'algo épico.',
@@ -69,16 +71,12 @@ export const landingData = {
       'Envíos disponibles',
     ],
     showcase: {
-      tag: '🔥 Más Solicitado',
-      title: 'Gojo Satoru - Hollow Purple Ver.',
-      series: 'Jujutsu Kaisen • Escala 1/7',
-      price: '$48.00',
-      badge: 'Preventa Activa',
-      japaneseKicker: 'アニメコレクション', // Anime Collection
-      stats: [
-        { label: 'Figuras', value: '+350' },
-        { label: 'Mangas', value: '+120' },
-        { label: 'Originales', value: '100%' },
+      slides: [
+        '/images/hero/01_carrusel.png',
+        '/images/hero/02_carrusel.png',
+        '/images/hero/03_carrusel.png',
+        '/images/hero/04_carrusel.png',
+        '/images/hero/05_carrusel.png',
       ],
     },
   },
@@ -188,7 +186,7 @@ export const landingData = {
 
   // 7. Sección de Beneficios
   benefits: {
-    eyebrow: '¿Por qué Sora Store?',
+    eyebrow: '¿Por qué Fashion Revels?',
     title: 'Diseñado para verdaderos coleccionistas',
     description:
       'Nos apasiona el anime tanto como a ti. Cuidamos cada detalle desde la selección de cada artículo hasta su entrega.',
@@ -239,7 +237,8 @@ export const landingData = {
   // 9. Pie de Página (Footer)
   footer: {
     brand: {
-      name: 'Sora Store',
+      name: 'Fashion Revels',
+      logo: '/images/logo.png',
       description:
         'Figuras, mangas y merchandising para verdaderos fans del anime. Tu tienda de confianza para encontrar tu próxima pieza de colección.',
     },
@@ -269,6 +268,6 @@ export const landingData = {
       { name: 'TikTok', href: 'https://tiktok.com' },
       { name: 'Facebook', href: 'https://facebook.com' },
     ],
-    copyright: `© ${new Date().getFullYear()} Sora Store. Todos los derechos reservados.`,
+    copyright: `© ${new Date().getFullYear()} Fashion Revels. Todos los derechos reservados.`,
   },
 };
