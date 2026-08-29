@@ -51,9 +51,11 @@ export const landingData = {
 
   // 4. Sección Hero (Impacto Principal)
   hero: {
-    backgroundVideo: '/video/goku_sky.mp4',
+    eyebrow: 'Tu tienda de coleccionables anime',
     title: 'Tu colección merece',
     titleHighlight: 'algo épico.',
+    description:
+      'Figuras de acción exclusivas, mangas oficiales y merchandising para verdaderos fans del anime. Encuentra tus piezas favoritas con calidad garantizada y envíos seguros.',
     primaryAction: {
       label: 'Explorar productos',
       href: '#products',
@@ -62,6 +64,11 @@ export const landingData = {
       label: 'Ver categorías',
       href: '#categories',
     },
+    trustIndicators: [
+      'Productos 100% Originales',
+      'Atención personalizada',
+      'Envíos disponibles',
+    ],
     showcase: {
       slides: [
         '/images/hero/gojo-hollow-purple.jpg',

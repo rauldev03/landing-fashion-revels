@@ -1,10 +1,11 @@
 import React from 'react';
 import Container from '../../ui/Container';
 import Button from '../../ui/Button';
+import LensflareBackground from './LensflareBackground';
 
 /**
- * Componente Hero adaptable para Sora Store.
- * Soporta layout a 2 columnas en desktop con indicadores de confianza e imagen/showcase.
+ * Componente Hero adaptable para Fashion Revels.
+ * Fondo con animación 3D Lensflare interactiva (Three.js WebGL) y carrusel de figuras de colección.
  *
  * @param {Object} props
  * @param {string} [props.eyebrow] - Etiqueta superior o novedad
@@ -25,64 +26,38 @@ export default function Hero({
   secondaryAction,
   trustIndicators = [],
   image,
-  backgroundVideo,
 }) {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 bg-sky-950/5"
+      className="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 bg-[#0a192f] text-white"
     >
-      {/* Video de fondo a máxima claridad y fidelidad */}
-      {backgroundVideo && (
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-100"
-          aria-hidden="true"
-        >
-          <source src={backgroundVideo} type="video/mp4" />
-        </video>
-      )}
+      {/* Animación 3D Lensflare interactiva de Three.js */}
+      <LensflareBackground />
 
-      {/* Capa de contraste sutil únicamente en el lado del texto para legibilidad perfecta */}
+      {/* Capa de viñeta sutil para profundidad visual y contraste de texto */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/15 to-transparent pointer-events-none"
+        className="absolute inset-0 bg-gradient-to-r from-[#0a192f]/70 via-[#0a192f]/20 to-transparent pointer-events-none z-[1]"
         aria-hidden="true"
       />
-
-      {/* Orbes decorativos de respaldo solo si no hay video */}
-      {!backgroundVideo && (
-        <>
-          <div
-            className="absolute top-0 right-0 w-[520px] h-[520px] bg-sky-200/30 blur-[130px] pointer-events-none rounded-full -translate-y-1/4 translate-x-1/4"
-            aria-hidden="true"
-          />
-          <div
-            className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-sky-100/40 blur-[110px] pointer-events-none rounded-full translate-y-1/4 -translate-x-1/4"
-            aria-hidden="true"
-          />
-        </>
-      )}
 
       <Container className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Columna Izquierda: Mensaje y Llamadas a la Acción */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
-            {/* Eyebrow / Tag */}
+            {/* Eyebrow / Tag (Opcional) */}
             {eyebrow && (
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 text-xs font-semibold text-anime-600 bg-anime-100 border border-anime-200 rounded-full shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-anime-400 animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 text-xs font-semibold text-sky-300 bg-sky-950/60 border border-sky-500/30 rounded-full shadow-sm backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
                 <span>{eyebrow}</span>
               </div>
             )}
 
             {/* Título Principal con Resaltado */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12] mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12] mb-6 drop-shadow-sm">
               {title}{' '}
               {titleHighlight && (
-                <span className="bg-gradient-to-r from-sky-500 via-anime-400 to-mystic-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-sky-400 via-pink-400 to-amber-300 bg-clip-text text-transparent">
                   {titleHighlight}
                 </span>
               )}
@@ -90,14 +65,14 @@ export default function Hero({
 
             {/* Descripción (Opcional) */}
             {description && (
-              <p className="text-base sm:text-lg text-slate-500 max-w-xl mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-300 max-w-xl mb-8 leading-relaxed">
                 {description}
               </p>
             )}
 
             {/* Acciones / Botones */}
             {(primaryAction || secondaryAction) && (
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto mt-8 sm:mt-14 lg:mt-20 mb-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto mt-6 mb-8">
                 {primaryAction && (
                   <Button href={primaryAction.href} variant="primary" size="lg">
                     {primaryAction.label}
@@ -108,6 +83,7 @@ export default function Hero({
                     href={secondaryAction.href}
                     variant="secondary"
                     size="lg"
+                    className="bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-md"
                   >
                     {secondaryAction.label}
                   </Button>
@@ -117,13 +93,13 @@ export default function Hero({
 
             {/* Indicadores de Confianza */}
             {trustIndicators.length > 0 && (
-              <div className="pt-6 border-t border-slate-200 w-full flex flex-wrap items-center gap-y-3 gap-x-6">
+              <div className="pt-6 border-t border-white/15 w-full flex flex-wrap items-center gap-y-3 gap-x-6">
                 {trustIndicators.map((indicator, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-2 text-xs sm:text-sm text-slate-600"
+                    className="flex items-center gap-2 text-xs sm:text-sm text-slate-300 font-medium"
                   >
-                    <div className="w-4 h-4 rounded-full bg-sky-100 flex items-center justify-center text-sky-600 shrink-0">
+                    <div className="w-4 h-4 rounded-full bg-sky-500/20 border border-sky-400/40 flex items-center justify-center text-sky-300 shrink-0">
                       <svg
                         className="w-2.5 h-2.5"
                         fill="currentColor"

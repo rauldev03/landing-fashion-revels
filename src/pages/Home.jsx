@@ -35,7 +35,7 @@ export default function Home() {
 
   return (
     <LandingLayout navbar={navbarConfig} footer={footer}>
-      {/* 1. Sección Hero (Propuesta de valor e impacto) */}
+      {/* 1. Sección Hero (Propuesta de valor e impacto con 3D Lensflare) */}
       <Hero
         eyebrow={hero.eyebrow}
         title={hero.title}
@@ -45,7 +45,6 @@ export default function Home() {
         secondaryAction={hero.secondaryAction}
         trustIndicators={hero.trustIndicators}
         image={<HeroShowcase showcaseData={hero.showcase} />}
-        backgroundVideo={hero.backgroundVideo}
       />
 
       {/* 2. Sección Categorías (Figuras, Mangas, Merch, Coleccionables) */}
