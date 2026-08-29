@@ -30,37 +30,41 @@ export default function Hero({
   return (
     <section
       id="hero"
-      className="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 bg-gradient-to-br from-sky-50 via-white to-sky-50/40"
+      className="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 bg-sky-950/5"
     >
-      {/* Video de fondo si está presente */}
+      {/* Video de fondo a máxima claridad y fidelidad */}
       {backgroundVideo && (
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-85"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-100"
           aria-hidden="true"
         >
           <source src={backgroundVideo} type="video/mp4" />
         </video>
       )}
 
-      {/* Capa de contraste suave para mantener el video muy visible y el texto legible */}
+      {/* Capa de contraste sutil únicamente en el lado del texto para legibilidad perfecta */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-white/30 pointer-events-none"
+        className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/15 to-transparent pointer-events-none"
         aria-hidden="true"
       />
 
-      {/* Orbes decorativos celestes suaves de fondo */}
-      <div
-        className="absolute top-0 right-0 w-[520px] h-[520px] bg-sky-200/30 blur-[130px] pointer-events-none rounded-full -translate-y-1/4 translate-x-1/4"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-sky-100/40 blur-[110px] pointer-events-none rounded-full translate-y-1/4 -translate-x-1/4"
-        aria-hidden="true"
-      />
+      {/* Orbes decorativos de respaldo solo si no hay video */}
+      {!backgroundVideo && (
+        <>
+          <div
+            className="absolute top-0 right-0 w-[520px] h-[520px] bg-sky-200/30 blur-[130px] pointer-events-none rounded-full -translate-y-1/4 translate-x-1/4"
+            aria-hidden="true"
+          />
+          <div
+            className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-sky-100/40 blur-[110px] pointer-events-none rounded-full translate-y-1/4 -translate-x-1/4"
+            aria-hidden="true"
+          />
+        </>
+      )}
 
       <Container className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -84,14 +88,16 @@ export default function Hero({
               )}
             </h1>
 
-            {/* Descripción */}
-            <p className="text-base sm:text-lg text-slate-500 max-w-xl mb-8 leading-relaxed">
-              {description}
-            </p>
+            {/* Descripción (Opcional) */}
+            {description && (
+              <p className="text-base sm:text-lg text-slate-500 max-w-xl mb-8 leading-relaxed">
+                {description}
+              </p>
+            )}
 
             {/* Acciones / Botones */}
             {(primaryAction || secondaryAction) && (
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto mb-10">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto mt-8 sm:mt-14 lg:mt-20 mb-4">
                 {primaryAction && (
                   <Button href={primaryAction.href} variant="primary" size="lg">
                     {primaryAction.label}

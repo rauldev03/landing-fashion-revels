@@ -52,11 +52,8 @@ export const landingData = {
   // 4. Sección Hero (Impacto Principal)
   hero: {
     backgroundVideo: '/video/goku_sky.mp4',
-    eyebrow: 'Tu tienda para coleccionistas',
     title: 'Tu colección merece',
     titleHighlight: 'algo épico.',
-    description:
-      'Figuras, mangas y merchandising para verdaderos fans del anime. Encuentra nuevos personajes para llevar tu colección al siguiente nivel con calidad garantizada.',
     primaryAction: {
       label: 'Explorar productos',
       href: '#products',
@@ -65,18 +62,12 @@ export const landingData = {
       label: 'Ver categorías',
       href: '#categories',
     },
-    trustIndicators: [
-      'Productos seleccionados',
-      'Atención personalizada',
-      'Envíos disponibles',
-    ],
     showcase: {
       slides: [
-        '/images/hero/01_carrusel.png',
-        '/images/hero/02_carrusel.png',
-        '/images/hero/03_carrusel.png',
-        '/images/hero/04_carrusel.png',
-        '/images/hero/05_carrusel.png',
+        '/images/hero/gojo-hollow-purple.jpg',
+        '/images/hero/zoro-wano.jpg',
+        '/images/hero/chainsaw-denji.jpg',
+        '/images/hero/manga-boxset.jpg',
       ],
     },
   },
